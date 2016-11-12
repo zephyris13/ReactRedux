@@ -7,18 +7,18 @@ import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
   const logger = loggerMiddleware({
-      stateTransformer: (state) => {
-        if (state.toJS) {
-          return state.toJS();
-        }
-
-        return state;
+    stateTransformer: (state) => {
+      if (state.toJS) {
+        return state.toJS();
       }
+
+      return state;
+    },
   });
 
   return createStore(
     rootReducer,
     initialState,
-    applyMiddleware(thunk, promise, logger)
+    applyMiddleware(thunk, promise, logger),
   );
 }

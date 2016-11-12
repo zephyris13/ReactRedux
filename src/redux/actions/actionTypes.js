@@ -1,1 +1,2 @@
-export const CREATE_COURSE = 'CREATE_COURSE';
+const CREATE_COURSE = 'CREATE_COURSE';
+export { CREATE_COURSE as default };

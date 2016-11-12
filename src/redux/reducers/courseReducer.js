@@ -8,7 +8,7 @@ const DefaultState = Immutable.Record({
 const initialState = new DefaultState();
 
 export default function courseReducer(state = initialState, action) {
-  switch(action.type) {
+  switch (action.type) {
     case types.CREATE_COURSE:
       return state.update('data', Immutable.List(), x => x.push(action.course));
 

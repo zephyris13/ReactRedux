@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { createCourse } from '../../redux/actions/courseActions';
 
 @connect(
@@ -9,26 +8,26 @@ import { createCourse } from '../../redux/actions/courseActions';
   }),
   {
     createCourse,
-  }
+  },
 )
 export default class CoursesPage extends Component {
   static propTypes = {
     courses: PropTypes.object.isRequired,
-    createCourse: PropTypes.func.isRequired
+    createCourse: PropTypes.func.isRequired,
   };
 
   constructor(props, context) {
     super(props, context);
 
     this.state = {
-      course: { title: '' }
+      course: { title: '' },
     };
   }
 
   onTitleChange(e) {
     const { course } = this.state;
     course.title = e.target.value;
-    this.setState({ course: course });
+    this.setState({ course });
   }
 
   onClickSave() {
@@ -57,13 +56,15 @@ export default class CoursesPage extends Component {
         <h2>Add Course</h2>
         <input
           type="text"
-          onChange={(e) => this.onTitleChange(e)}
-          value={course.title} />
+          onChange={e => this.onTitleChange(e)}
+          value={course.title}
+        />
 
         <input
           type="submit"
           value="Save"
-          onClick={() => this.onClickSave()} />
+          onClick={() => this.onClickSave()}
+        />
       </div>
     );
   }

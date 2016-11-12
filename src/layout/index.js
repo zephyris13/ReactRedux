@@ -9,7 +9,7 @@ export default class Layout extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Header/>
+        <Header />
         {this.props.children}
       </div>
     );
