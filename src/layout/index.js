@@ -1,7 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import Header from './common/Header';
+import Header from '../components/common/Header';
 
-export default class App extends Component {
+export default class Layout extends Component {
+  static propTypes = {
+    children: PropTypes.object.isRequired,
+  };
+
   render() {
     return (
       <div className="container-fluid">
@@ -11,7 +15,3 @@ export default class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  children: PropTypes.object.isRequired
-};
