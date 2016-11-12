@@ -11,6 +11,11 @@ $ npm install
 $ npm start
 ```
 
+## Build
+```sh
+$ npm run build
+```
+
 ## License
 
 MIT © Zephyris13

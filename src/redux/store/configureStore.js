@@ -3,15 +3,25 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import loggerMiddleware from 'redux-logger';
+import axios from 'axios';
+import axiosMiddleware from 'redux-axios-middleware';
 
 import rootReducer from '../reducers';
 
-export default function configureStore(initialState) {
+export default function configureStore(token) {
+  const client = axios.create({
+    baseURL: 'https://jsonplaceholder.typicode.com/',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    responseType: 'json',
+  });
+
   return createStore(
     rootReducer,
-    initialState,
     __DEV__
-      ? applyMiddleware(thunk, promise, loggerMiddleware({
+      ? applyMiddleware(thunk, promise, axiosMiddleware(client),
+      loggerMiddleware({
         stateTransformer: (state) => {
           if (state.toJS) {
             return state.toJS();
@@ -20,6 +30,6 @@ export default function configureStore(initialState) {
           return state;
         },
       }))
-      : applyMiddleware(thunk, promise),
+      : applyMiddleware(thunk, promise, axiosMiddleware(client)),
   );
 }
