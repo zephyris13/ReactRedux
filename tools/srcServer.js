@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import path from 'path';
 import open from 'open';
 
-import config from '../webpack.config.dev';
+import config from './webpack.config.dev';
 
 /* eslint-disable no-console */
 
