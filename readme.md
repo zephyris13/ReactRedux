@@ -1,4 +1,4 @@
-# React, Redux, Immutable, ES6, Sass Boilerplate
+# React, Redux, Router, Axios, Immutable, ESLint, ES6, Sass Boilerplate
 
 ## Install
 ```sh
