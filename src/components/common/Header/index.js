@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 
-const Header = () => (
-  <nav>
-    <IndexLink to="/" activeClassName="active">Home</IndexLink> | <Link to="courses" activeClassName="active">Courses</Link> | <Link to="about" activeClassName="active">About</Link>
-  </nav>
-);
+export default class Header extends Component {
+  static propTypes = {
+    links: PropTypes.array,
+  };
 
-export default Header;
+  render() {
+    const { links } = this.props;
+    return (
+      <nav>
+        <IndexLink to="/" activeClassName="active">Home</IndexLink>
+        {
+          links && links.map((x, i) => <span key={i}> | <Link to={x.to} activeClassName="active">{x.text}</Link></span>)
+        }
+      </nav>
+    );
+  }
+}

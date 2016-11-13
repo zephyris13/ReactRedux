@@ -6,10 +6,29 @@ export default class Layout extends Component {
     children: PropTypes.object.isRequired,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.headerItems = [
+      {
+        to: 'courses',
+        text: 'Courses',
+      },
+      {
+        to: 'posts',
+        text: 'Posts',
+      },
+      {
+        to: 'about',
+        text: 'About',
+      },
+    ];
+  }
+
   render() {
     return (
       <div className="container-fluid">
-        <Header />
+        <Header links={this.headerItems} />
         {this.props.children}
       </div>
     );
