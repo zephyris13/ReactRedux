@@ -7,7 +7,7 @@ var webpackConfig = require('./webpack.config.dev');
 module.exports = _.assign(webpackConfig, {
   debug: false,
   noInfo: true,
-  devtool: "cheap-source-map",
+  devtool: 'cheap-source-map',
   entry: [
     path.resolve(__dirname, '../src/index')
   ],
@@ -21,7 +21,12 @@ module.exports = _.assign(webpackConfig, {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false,
+      },
+      screwIE8: true,
+    }),
     new CopyWebpackPlugin([
         { from: 'src/index.html' }
     ])
