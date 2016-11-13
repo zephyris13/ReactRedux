@@ -14,7 +14,7 @@ module.exports = _.assign(webpackConfig, {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
-      __DEV__: false,
+      __DEV__: false
     }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -23,9 +23,8 @@ module.exports = _.assign(webpackConfig, {
     }),
     new webpack.optimize.UglifyJsPlugin({
       compressor: {
-        warnings: false,
-      },
-      screwIE8: true,
+        warnings: false
+      }
     }),
     new CopyWebpackPlugin([
         { from: 'src/index.html' }
