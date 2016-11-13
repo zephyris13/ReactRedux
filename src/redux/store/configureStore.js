@@ -6,14 +6,12 @@ import loggerMiddleware from 'redux-logger';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 
+import * as config from '../../config';
 import rootReducer from '../reducers';
 
-export default function configureStore(token) {
+export default function configureStore() {
   const client = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com/',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    baseURL: config.FETCH_BASE_URL,
     responseType: 'json',
   });
 
