@@ -33,9 +33,12 @@ module.exports = {
       {test: /(\.css)$/, loaders: ['style', 'css']},
       {test: /(\.scss)$/, loaders: ['style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]', 'postcss-loader']},
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file'},
-      {test: /\.(woff|woff2)$/, loader: 'url?prefix=font/&limit=5000'},
       {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/octet-stream'},
-      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'}
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=image/svg+xml'},
+      {test: /\.json$/, loader: 'json-loader'},
+      {test: /\.txt$/, loader: 'raw-loader'},
+      {test: /\.(png|jpg|jpeg|gif|woff|woff2)$/, loader: 'file-loader'},
+      {test: /\.(svg|eot|ttf|wav|mp3)$/, loader: 'file-loader'}
     ]
   }
 };
