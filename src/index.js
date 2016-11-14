@@ -1,10 +1,11 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import { Route, IndexRoute, browserHistory, Router } from 'react-router';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import axios from 'axios';
 
-import 'babel-polyfill';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
